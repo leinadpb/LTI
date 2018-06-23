@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LTI", "LTI\LTI.csproj", "{625ED4F9-A449-43A5-903A-223353213F5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{625ED4F9-A449-43A5-903A-223353213F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625ED4F9-A449-43A5-903A-223353213F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625ED4F9-A449-43A5-903A-223353213F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625ED4F9-A449-43A5-903A-223353213F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE6FEA7B-DF74-4D6E-B7AD-9AB2F83F6589}
+	EndGlobalSection
+EndGlobal
