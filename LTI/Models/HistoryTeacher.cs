@@ -32,6 +32,7 @@ namespace LTI.Models
         public string ComputerName { get; set; }
 
         //Navigation properties
+        public ICollection<Teacher> Teachers { get; set; }
 
 
     }

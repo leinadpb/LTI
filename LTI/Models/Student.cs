@@ -41,7 +41,12 @@ namespace LTI.Models
         public string SubjectCode { get; set; }
 
         //Navigation properties
+        public int HistoryStudentID { get; set; }
+        public HistoryStudent HistoryStudent { get; set; }
 
+        public ICollection<Suggestion> Suggestions { get; set; }
+        public ICollection<Claim> Claims { get; set; }
+        public ICollection<Complain> Complains { get; set; }
 
     }
 }

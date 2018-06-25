@@ -38,6 +38,7 @@ namespace LTI.Models
         public string SubjectSection { get; set; }
 
         //Navigation properties
+        public ICollection<Student> Students { get; set; }
 
 
     }
