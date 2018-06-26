@@ -22,5 +22,6 @@ namespace LTI.Models
 
         //Navigation properties
 
+
     }
 }

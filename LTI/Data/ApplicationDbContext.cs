@@ -29,9 +29,9 @@ namespace LTI.Data
         {
             base.OnConfiguring(builder);
 
-            builder.UseSqlServer(@"Data Source=LEINAD\SQLEXPRESS;Initial Catalog=LTI;Integrated Security=True");
+            builder.UseSqlServer(@"Data Source=tcp:GOISTER\SQLEXPRESS;Initial Catalog=LTI;User ID=goister;Password=Pplg4856");
 
-            //Specify all relation here
+            //Specify all relation here -- EF CORE 2 
 
             //// HistoryStudent - Student (1 - *)
             //builder.Entity<Student>()

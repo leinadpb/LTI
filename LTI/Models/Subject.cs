@@ -21,7 +21,7 @@ namespace LTI.Models
         public string SubjectCode { get; set; }
 
         //Navigation Properties
-        public int TeacherID { get; set; }
+
         public Teacher Teacher { get; set; }
 
     }

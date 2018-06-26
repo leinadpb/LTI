@@ -15,7 +15,7 @@ namespace LTI.Models
         [StringLength(30)]
         public string Key { get; set; }
 
-        [StringLength(80)]
+        [StringLength(1200)]
         public string Value { get; set; }
 
     }

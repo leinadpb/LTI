@@ -37,6 +37,9 @@ namespace LTI.Models
         [StringLength(10)]
         public string SubjectSection { get; set; }
 
+        [Required]
+        public bool HasFilledSurvey { get; set; }
+
         //Navigation properties
         public ICollection<Student> Students { get; set; }
 

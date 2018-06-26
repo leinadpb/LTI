@@ -31,6 +31,9 @@ namespace LTI.Models
         [StringLength(20)]
         public string ComputerName { get; set; }
 
+        [Required]
+        public bool HasFilledSurvey { get; set; }
+
         //Navigation properties
         public ICollection<Teacher> Teachers { get; set; }
 

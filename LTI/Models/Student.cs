@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,10 +41,16 @@ namespace LTI.Models
         [StringLength(20)]
         public string SubjectCode { get; set; }
 
-        //Navigation properties
-        public int HistoryStudentID { get; set; }
+        [Required]
+        public bool HasFilledSurvey { get; set; }
+        
+                //Navigation properties
+
         public HistoryStudent HistoryStudent { get; set; }
 
+
+        public virtual Teacher Teacher { get; set; }
+        
         public ICollection<Suggestion> Suggestions { get; set; }
         public ICollection<Claim> Claims { get; set; }
         public ICollection<Complain> Complains { get; set; }

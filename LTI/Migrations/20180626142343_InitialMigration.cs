@@ -15,7 +15,7 @@ namespace LTI.Migrations
                     ConfigurationID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Key = table.Column<string>(maxLength: 30, nullable: true),
-                    Value = table.Column<string>(maxLength: 80, nullable: true)
+                    Value = table.Column<string>(maxLength: 1200, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -34,7 +34,8 @@ namespace LTI.Migrations
                     Domain = table.Column<string>(maxLength: 20, nullable: false),
                     ComputerName = table.Column<string>(maxLength: 20, nullable: false),
                     SubjectName = table.Column<string>(maxLength: 80, nullable: true),
-                    SubjectSection = table.Column<string>(maxLength: 10, nullable: true)
+                    SubjectSection = table.Column<string>(maxLength: 10, nullable: true),
+                    HasFilledSurvey = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -51,7 +52,8 @@ namespace LTI.Migrations
                     DisplayName = table.Column<string>(maxLength: 120, nullable: false),
                     RegisteredDate = table.Column<DateTime>(nullable: false),
                     Domain = table.Column<string>(maxLength: 20, nullable: false),
-                    ComputerName = table.Column<string>(maxLength: 20, nullable: false)
+                    ComputerName = table.Column<string>(maxLength: 20, nullable: false),
+                    HasFilledSurvey = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -89,6 +91,31 @@ namespace LTI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Teachers",
+                columns: table => new
+                {
+                    TeacherID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    LoginName = table.Column<string>(maxLength: 60, nullable: false),
+                    DisplayName = table.Column<string>(maxLength: 120, nullable: false),
+                    RegisteredDate = table.Column<DateTime>(nullable: false),
+                    Domain = table.Column<string>(maxLength: 20, nullable: false),
+                    ComputerName = table.Column<string>(maxLength: 20, nullable: false),
+                    HasFilledSurvey = table.Column<bool>(nullable: false),
+                    HistoryTeacherID = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teachers", x => x.TeacherID);
+                    table.ForeignKey(
+                        name: "FK_Teachers_HistoryTeachers_HistoryTeacherID",
+                        column: x => x.HistoryTeacherID,
+                        principalTable: "HistoryTeachers",
+                        principalColumn: "HistoryTeacherID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Students",
                 columns: table => new
                 {
@@ -102,7 +129,9 @@ namespace LTI.Migrations
                     SubjectName = table.Column<string>(maxLength: 140, nullable: true),
                     SubjectSection = table.Column<string>(maxLength: 10, nullable: true),
                     SubjectCode = table.Column<string>(maxLength: 20, nullable: true),
-                    HistoryStudentID = table.Column<int>(nullable: false)
+                    HasFilledSurvey = table.Column<bool>(nullable: false),
+                    HistoryStudentID = table.Column<int>(nullable: true),
+                    TeacherID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -112,85 +141,13 @@ namespace LTI.Migrations
                         column: x => x.HistoryStudentID,
                         principalTable: "HistoryStudents",
                         principalColumn: "HistoryStudentID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Teachers",
-                columns: table => new
-                {
-                    TeacherID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    LoginName = table.Column<string>(maxLength: 60, nullable: false),
-                    DisplayName = table.Column<string>(maxLength: 120, nullable: false),
-                    RegisteredDate = table.Column<DateTime>(nullable: false),
-                    Domain = table.Column<string>(maxLength: 20, nullable: false),
-                    ComputerName = table.Column<string>(maxLength: 20, nullable: false),
-                    HistoryTeacherID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Teachers", x => x.TeacherID);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Teachers_HistoryTeachers_HistoryTeacherID",
-                        column: x => x.HistoryTeacherID,
-                        principalTable: "HistoryTeachers",
-                        principalColumn: "HistoryTeacherID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Claims",
-                columns: table => new
-                {
-                    ClaimID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ClaimText = table.Column<string>(maxLength: 500, nullable: false),
-                    StudentID = table.Column<int>(nullable: false),
-                    TeacherID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Claims", x => x.ClaimID);
-                    table.ForeignKey(
-                        name: "FK_Claims_Students_StudentID",
-                        column: x => x.StudentID,
-                        principalTable: "Students",
-                        principalColumn: "StudentID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Claims_Teachers_TeacherID",
+                        name: "FK_Students_Teachers_TeacherID",
                         column: x => x.TeacherID,
                         principalTable: "Teachers",
                         principalColumn: "TeacherID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Complains",
-                columns: table => new
-                {
-                    ComplainID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ComplainText = table.Column<string>(maxLength: 500, nullable: false),
-                    StudentID = table.Column<int>(nullable: false),
-                    TeacherID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Complains", x => x.ComplainID);
-                    table.ForeignKey(
-                        name: "FK_Complains_Students_StudentID",
-                        column: x => x.StudentID,
-                        principalTable: "Students",
-                        principalColumn: "StudentID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Complains_Teachers_TeacherID",
-                        column: x => x.TeacherID,
-                        principalTable: "Teachers",
-                        principalColumn: "TeacherID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -201,7 +158,7 @@ namespace LTI.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     SubjectName = table.Column<string>(maxLength: 120, nullable: false),
                     SubjectCode = table.Column<string>(maxLength: 10, nullable: false),
-                    TeacherID = table.Column<int>(nullable: false)
+                    TeacherID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -211,7 +168,61 @@ namespace LTI.Migrations
                         column: x => x.TeacherID,
                         principalTable: "Teachers",
                         principalColumn: "TeacherID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Claims",
+                columns: table => new
+                {
+                    ClaimID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ClaimText = table.Column<string>(maxLength: 500, nullable: false),
+                    StudentID = table.Column<int>(nullable: true),
+                    TeacherID = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Claims", x => x.ClaimID);
+                    table.ForeignKey(
+                        name: "FK_Claims_Students_StudentID",
+                        column: x => x.StudentID,
+                        principalTable: "Students",
+                        principalColumn: "StudentID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Claims_Teachers_TeacherID",
+                        column: x => x.TeacherID,
+                        principalTable: "Teachers",
+                        principalColumn: "TeacherID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Complains",
+                columns: table => new
+                {
+                    ComplainID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ComplainText = table.Column<string>(maxLength: 500, nullable: false),
+                    StudentID = table.Column<int>(nullable: true),
+                    TeacherID = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Complains", x => x.ComplainID);
+                    table.ForeignKey(
+                        name: "FK_Complains_Students_StudentID",
+                        column: x => x.StudentID,
+                        principalTable: "Students",
+                        principalColumn: "StudentID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Complains_Teachers_TeacherID",
+                        column: x => x.TeacherID,
+                        principalTable: "Teachers",
+                        principalColumn: "TeacherID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -221,8 +232,8 @@ namespace LTI.Migrations
                     SuggestionID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     SuggestionText = table.Column<string>(maxLength: 500, nullable: false),
-                    StudentID = table.Column<int>(nullable: false),
-                    TeacherID = table.Column<int>(nullable: false)
+                    StudentID = table.Column<int>(nullable: true),
+                    TeacherID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -232,13 +243,13 @@ namespace LTI.Migrations
                         column: x => x.StudentID,
                         principalTable: "Students",
                         principalColumn: "StudentID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Suggestion_Teachers_TeacherID",
                         column: x => x.TeacherID,
                         principalTable: "Teachers",
                         principalColumn: "TeacherID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -265,6 +276,11 @@ namespace LTI.Migrations
                 name: "IX_Students_HistoryStudentID",
                 table: "Students",
                 column: "HistoryStudentID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Students_TeacherID",
+                table: "Students",
+                column: "TeacherID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Subjects_TeacherID",
@@ -314,10 +330,10 @@ namespace LTI.Migrations
                 name: "Students");
 
             migrationBuilder.DropTable(
-                name: "Teachers");
+                name: "HistoryStudents");
 
             migrationBuilder.DropTable(
-                name: "HistoryStudents");
+                name: "Teachers");
 
             migrationBuilder.DropTable(
                 name: "HistoryTeachers");

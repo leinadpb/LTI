@@ -17,10 +17,10 @@ namespace LTI.Models
         public string ClaimText { get; set; }
 
         //Navigation properties
-        public int StudentID { get; set; }
+
         public Student Student { get; set; }
 
-        public int TeacherID { get; set; }
+ 
         public Teacher Teacher { get; set; }
     }
 }

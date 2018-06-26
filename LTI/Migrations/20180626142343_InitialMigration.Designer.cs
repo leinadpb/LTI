@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LTI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180625154521_InitialMigration")]
+    [Migration("20180626142343_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,9 +31,9 @@ namespace LTI.Migrations
                         .IsRequired()
                         .HasMaxLength(500);
 
-                    b.Property<int>("StudentID");
+                    b.Property<int?>("StudentID");
 
-                    b.Property<int>("TeacherID");
+                    b.Property<int?>("TeacherID");
 
                     b.HasKey("ClaimID");
 
@@ -54,9 +54,9 @@ namespace LTI.Migrations
                         .IsRequired()
                         .HasMaxLength(500);
 
-                    b.Property<int>("StudentID");
+                    b.Property<int?>("StudentID");
 
-                    b.Property<int>("TeacherID");
+                    b.Property<int?>("TeacherID");
 
                     b.HasKey("ComplainID");
 
@@ -77,7 +77,7 @@ namespace LTI.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("Value")
-                        .HasMaxLength(80);
+                        .HasMaxLength(1200);
 
                     b.HasKey("ConfigurationID");
 
@@ -101,6 +101,8 @@ namespace LTI.Migrations
                     b.Property<string>("Domain")
                         .IsRequired()
                         .HasMaxLength(20);
+
+                    b.Property<bool>("HasFilledSurvey");
 
                     b.Property<string>("LoginName")
                         .IsRequired()
@@ -136,6 +138,8 @@ namespace LTI.Migrations
                     b.Property<string>("Domain")
                         .IsRequired()
                         .HasMaxLength(20);
+
+                    b.Property<bool>("HasFilledSurvey");
 
                     b.Property<string>("LoginName")
                         .IsRequired()
@@ -185,7 +189,9 @@ namespace LTI.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<int>("HistoryStudentID");
+                    b.Property<bool>("HasFilledSurvey");
+
+                    b.Property<int?>("HistoryStudentID");
 
                     b.Property<string>("LoginName")
                         .IsRequired()
@@ -202,9 +208,13 @@ namespace LTI.Migrations
                     b.Property<string>("SubjectSection")
                         .HasMaxLength(10);
 
+                    b.Property<int?>("TeacherID");
+
                     b.HasKey("StudentID");
 
                     b.HasIndex("HistoryStudentID");
+
+                    b.HasIndex("TeacherID");
 
                     b.ToTable("Students");
                 });
@@ -223,7 +233,7 @@ namespace LTI.Migrations
                         .IsRequired()
                         .HasMaxLength(120);
 
-                    b.Property<int>("TeacherID");
+                    b.Property<int?>("TeacherID");
 
                     b.HasKey("SubjectID");
 
@@ -238,13 +248,13 @@ namespace LTI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("StudentID");
+                    b.Property<int?>("StudentID");
 
                     b.Property<string>("SuggestionText")
                         .IsRequired()
                         .HasMaxLength(500);
 
-                    b.Property<int>("TeacherID");
+                    b.Property<int?>("TeacherID");
 
                     b.HasKey("SuggestionID");
 
@@ -273,7 +283,9 @@ namespace LTI.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<int>("HistoryTeacherID");
+                    b.Property<bool>("HasFilledSurvey");
+
+                    b.Property<int?>("HistoryTeacherID");
 
                     b.Property<string>("LoginName")
                         .IsRequired()
@@ -313,63 +325,58 @@ namespace LTI.Migrations
                 {
                     b.HasOne("LTI.Models.Student", "Student")
                         .WithMany("Claims")
-                        .HasForeignKey("StudentID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("StudentID");
 
                     b.HasOne("LTI.Models.Teacher", "Teacher")
                         .WithMany("Claims")
-                        .HasForeignKey("TeacherID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TeacherID");
                 });
 
             modelBuilder.Entity("LTI.Models.Complain", b =>
                 {
                     b.HasOne("LTI.Models.Student", "Student")
                         .WithMany("Complains")
-                        .HasForeignKey("StudentID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("StudentID");
 
                     b.HasOne("LTI.Models.Teacher", "Teacher")
                         .WithMany("Complains")
-                        .HasForeignKey("TeacherID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TeacherID");
                 });
 
             modelBuilder.Entity("LTI.Models.Student", b =>
                 {
                     b.HasOne("LTI.Models.HistoryStudent", "HistoryStudent")
                         .WithMany("Students")
-                        .HasForeignKey("HistoryStudentID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("HistoryStudentID");
+
+                    b.HasOne("LTI.Models.Teacher", "Teacher")
+                        .WithMany("Students")
+                        .HasForeignKey("TeacherID");
                 });
 
             modelBuilder.Entity("LTI.Models.Subject", b =>
                 {
                     b.HasOne("LTI.Models.Teacher", "Teacher")
                         .WithMany("Subjects")
-                        .HasForeignKey("TeacherID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TeacherID");
                 });
 
             modelBuilder.Entity("LTI.Models.Suggestion", b =>
                 {
                     b.HasOne("LTI.Models.Student", "Student")
                         .WithMany("Suggestions")
-                        .HasForeignKey("StudentID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("StudentID");
 
                     b.HasOne("LTI.Models.Teacher", "Teacher")
                         .WithMany("Suggestions")
-                        .HasForeignKey("TeacherID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TeacherID");
                 });
 
             modelBuilder.Entity("LTI.Models.Teacher", b =>
                 {
                     b.HasOne("LTI.Models.HistoryTeacher", "HistoryTeacher")
                         .WithMany("Teachers")
-                        .HasForeignKey("HistoryTeacherID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("HistoryTeacherID");
                 });
 #pragma warning restore 612, 618
         }
