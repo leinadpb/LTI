@@ -26,8 +26,8 @@ namespace LTI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Configuration _surveyUrl = _context.Configurations.Where(c => c.Key.ToLower().Equals("survey_url")).FirstOrDefault();
-            Configuration _surveyDisplayMode = _context.Configurations.Where(c => c.Key.ToLower().Equals("fullscreen")).FirstOrDefault();
+            Models.Configuration _surveyUrl = _context.Configurations.Where(c => c.Key.ToLower().Equals("survey_url")).FirstOrDefault();
+            Models.Configuration _surveyDisplayMode = _context.Configurations.Where(c => c.Key.ToLower().Equals("fullscreen")).FirstOrDefault();
 
             string SurveyUrl = _surveyUrl.Value;
 

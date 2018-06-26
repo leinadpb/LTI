@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using LTI.Models;
+using System.Configuration;
+
 
 namespace LTI.Data
 {
@@ -13,7 +15,7 @@ namespace LTI.Data
         
 
         //Database tables
-        public DbSet<Configuration> Configurations { get; set; }
+        public DbSet<Models.Configuration> Configurations { get; set; }
         public DbSet<Complain> Complains { get; set; }
         public DbSet<Claim> Claims { get; set; }
         public DbSet<Norma> Normas { get; set; } 
@@ -24,12 +26,14 @@ namespace LTI.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Student> Students { get; set; }
 
+        string conn = System.Configuration.ConfigurationManager.AppSettings["LTIConnection"];
+
         //Relations
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             base.OnConfiguring(builder);
 
-            builder.UseSqlServer(@"Data Source=tcp:GOISTER\SQLEXPRESS;Initial Catalog=LTI;User ID=goister;Password=Pplg4856");
+            builder.UseSqlServer(conn);
 
             //Specify all relation here -- EF CORE 2 
 
@@ -90,5 +94,6 @@ namespace LTI.Data
 
 
         }
+
     }
 }
