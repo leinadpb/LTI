@@ -141,6 +141,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_12CEA5C246A462C85259F21D489742D7"
+        "OwnerKey" = "8:_BC718D209B48482A8FDB99A92816E0D9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_14B36D1F2CFDD4E1C7F05180EF4418D4"
         "OwnerKey" = "8:_BC718D209B48482A8FDB99A92816E0D9"
         "MsmSig" = "8:_UNDEFINED"
@@ -783,12 +789,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_784D0287AFB64DA91AA61C37A21D4A69"
-        "OwnerKey" = "8:_BC718D209B48482A8FDB99A92816E0D9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_7887ACC2A62EC97D46CE90F19183A5F2"
         "OwnerKey" = "8:_8E9C04D7E0D84D2CD583549C620AEA42"
         "MsmSig" = "8:_UNDEFINED"
@@ -1120,7 +1120,7 @@
         "Entry"
         {
         "MsmKey" = "8:_B023641F3FB1AA2AC24717590779FAEA"
-        "OwnerKey" = "8:_784D0287AFB64DA91AA61C37A21D4A69"
+        "OwnerKey" = "8:_12CEA5C246A462C85259F21D489742D7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2290,6 +2290,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_12CEA5C246A462C85259F21D489742D7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_8E4A63D2A32CE2A2CBABE9409A841BC0"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -2339,12 +2345,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F4F204BD6EA74B40A4CA996FFA805AE9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_784D0287AFB64DA91AA61C37A21D4A69"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2886,6 +2886,37 @@
                     }
                 }
             "SourcePath" = "8:System.Data.Common.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_10BDC68479214353A4CFA6EB19806F3C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_12CEA5C246A462C85259F21D489742D7"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_12CEA5C246A462C85259F21D489742D7"
+                    {
+                    "Name" = "8:Interop.SHDocVw.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Interop.SHDocVw.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_10BDC68479214353A4CFA6EB19806F3C"
@@ -4456,37 +4487,6 @@
                     }
                 }
             "SourcePath" = "8:System.ObjectModel.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_10BDC68479214353A4CFA6EB19806F3C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_784D0287AFB64DA91AA61C37A21D4A69"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_784D0287AFB64DA91AA61C37A21D4A69"
-                    {
-                    "Name" = "8:Interop.SHDocVw.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Interop.SHDocVw.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_10BDC68479214353A4CFA6EB19806F3C"
@@ -6939,7 +6939,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_10BDC68479214353A4CFA6EB19806F3C"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -6999,7 +6999,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:NormasLTI"
         "ProductCode" = "8:{145355EA-64DD-4FA2-9D26-3377BF1B903C}"
-        "PackageCode" = "8:{8E63478B-2BC1-4A9D-8EFE-90A158975DA7}"
+        "PackageCode" = "8:{5D3E6A0B-8524-42A7-A102-23B4BD86C1A2}"
         "UpgradeCode" = "8:{8A225383-5D08-4265-8242-8AFB1316EDE4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -7020,7 +7020,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -7520,7 +7520,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_BC718D209B48482A8FDB99A92816E0D9"
             {
-            "SourcePath" = "8:..\\LTI\\obj\\Debug\\LTI.exe"
+            "SourcePath" = "8:..\\LTI\\obj\\Release\\LTI.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_10BDC68479214353A4CFA6EB19806F3C"
