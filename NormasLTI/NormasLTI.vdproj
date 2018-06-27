@@ -6960,6 +6960,18 @@
                     }
                 }
             }
+            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_92FA01D1A57143D6BAB25A71B27E23C5"
+            {
+            "DefaultLocation" = "8:C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
+            "Name" = "8:CustomStartUp"
+            "AlwaysCreate" = "11:TRUE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:NEWPROPERTY1"
+                "Folders"
+                {
+                }
+            }
             "{1525181F-901A-416C-8A58-119130FE478E}:_BF0E710C188D41DA8F65AD86B8871154"
             {
             "Name" = "8:#1916"
@@ -6999,7 +7011,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:NormasLTI"
         "ProductCode" = "8:{145355EA-64DD-4FA2-9D26-3377BF1B903C}"
-        "PackageCode" = "8:{5D3E6A0B-8524-42A7-A102-23B4BD86C1A2}"
+        "PackageCode" = "8:{DB83503C-8282-4486-B1E8-54201732457B}"
         "UpgradeCode" = "8:{8A225383-5D08-4265-8242-8AFB1316EDE4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
