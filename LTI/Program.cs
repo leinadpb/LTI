@@ -96,7 +96,7 @@ namespace LTI
                             if (student.RegisteredDate >= trimestres_actual.StartDate && student.RegisteredDate <= trimestres_actual.EndDate)
                             {
                                 //Show "Rules Reminder"
-                                Application.Run(new RulesReminder());
+                                Application.Run(new RulesReminder(displayName));
                             }
                             else
                             {
@@ -134,7 +134,7 @@ namespace LTI
                     catch (Exception exp)
                     {
                         Console.WriteLine("Error: " + exp.Message);
-                        Application.Run(new RulesReminder());
+                        Application.Run(new RulesReminder(displayName));
                         Application.Exit();
                     }
                 }
@@ -152,7 +152,7 @@ namespace LTI
                             if (teacher.RegisteredDate >= trimestres_actual.StartDate && teacher.RegisteredDate <= trimestres_actual.EndDate)
                             {
                                 //Show "Rules Reminder"
-                                Application.Run(new RulesReminder());
+                                Application.Run(new RulesReminder(displayName));
                             }
                             else
                             {
@@ -188,7 +188,7 @@ namespace LTI
                     catch (Exception exp)
                     {
                         Console.WriteLine("Error: " + exp.Message);
-                        Application.Run(new RulesReminder());
+                        Application.Run(new RulesReminder(displayName));
                         Application.Exit();
                     }
                 }
@@ -197,7 +197,11 @@ namespace LTI
             //Verify if Show Survey
             if (isSurveyTime)
             {
-                if(student != null) // && !domain.Equals("INTECADM")
+                //Get users
+                student = _context.Students.Where(s => s.LoginName.ToLower().Equals(loginName.ToLower())).FirstOrDefault();
+                teacher = _context.Teachers.Where(t => t.LoginName.ToLower().Equals(loginName.ToLower())).FirstOrDefault();
+
+                if (student != null) // && !domain.Equals("INTECADM")
                 {
                     if (!student.HasFilledSurvey)
                     {

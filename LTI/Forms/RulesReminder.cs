@@ -6,10 +6,12 @@ namespace LTI.Forms
     public partial class RulesReminder : Form
     {
         bool uiClosing = false;
+        string username;
 
-        public RulesReminder()
+        public RulesReminder(string _username)
         {
             InitializeComponent();
+            this.username = _username;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -32,6 +34,11 @@ namespace LTI.Forms
         {
             uiClosing = true;
             this.Close();
+        }
+
+        private void RulesReminder_Load(object sender, EventArgs e)
+        {
+            userNameLabel.Text = username;
         }
     }
 }

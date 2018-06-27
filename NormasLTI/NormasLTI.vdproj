@@ -7011,7 +7011,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:NormasLTI"
         "ProductCode" = "8:{145355EA-64DD-4FA2-9D26-3377BF1B903C}"
-        "PackageCode" = "8:{DB83503C-8282-4486-B1E8-54201732457B}"
+        "PackageCode" = "8:{5585C864-D5F0-4747-89B3-87CF0C499058}"
         "UpgradeCode" = "8:{8A225383-5D08-4265-8242-8AFB1316EDE4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -7131,6 +7131,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_90D837EE48594E7AB5E070484D452627"
+            {
+            "Name" = "8:NormasLTI"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_BC718D209B48482A8FDB99A92816E0D9"
+            "Folder" = "8:_92FA01D1A57143D6BAB25A71B27E23C5"
+            "WorkingFolder" = "8:_10BDC68479214353A4CFA6EB19806F3C"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
