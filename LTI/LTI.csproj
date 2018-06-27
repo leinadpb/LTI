@@ -240,16 +240,16 @@
     <Compile Include="Forms\RulesReminder.Designer.cs">
       <DependentUpon>RulesReminder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20180626142343_InitialMigration.cs" />
-    <Compile Include="Migrations\20180626142343_InitialMigration.designer.cs">
-      <DependentUpon>20180626142343_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\20180627122155_InitialMigration.cs" />
+    <Compile Include="Migrations\20180627122155_InitialMigration.designer.cs">
+      <DependentUpon>20180627122155_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ApplicationDbContextModelSnapshot.cs" />
     <Compile Include="Models\Claim.cs" />
     <Compile Include="Models\Complain.cs" />
-    <Compile Include="Models\Configuration.cs" />
     <Compile Include="Models\HistoryStudent.cs" />
     <Compile Include="Models\HistoryTeacher.cs" />
+    <Compile Include="Models\Myconfiguration.cs" />
     <Compile Include="Models\Norma.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Subject.cs" />

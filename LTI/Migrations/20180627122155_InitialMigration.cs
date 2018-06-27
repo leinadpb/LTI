@@ -12,14 +12,14 @@ namespace LTI.Migrations
                 name: "Configurations",
                 columns: table => new
                 {
-                    ConfigurationID = table.Column<int>(nullable: false)
+                    MyconfigurationID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Key = table.Column<string>(maxLength: 30, nullable: true),
                     Value = table.Column<string>(maxLength: 1200, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Configurations", x => x.ConfigurationID);
+                    table.PrimaryKey("PK_Configurations", x => x.MyconfigurationID);
                 });
 
             migrationBuilder.CreateTable(

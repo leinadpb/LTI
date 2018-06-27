@@ -12,10 +12,9 @@ namespace LTI.Data
 {
     class ApplicationDbContext : DbContext
     {
-        
 
         //Database tables
-        public DbSet<Models.Configuration> Configurations { get; set; }
+        public DbSet<Myconfiguration> Configurations { get; set; }
         public DbSet<Complain> Complains { get; set; }
         public DbSet<Claim> Claims { get; set; }
         public DbSet<Norma> Normas { get; set; } 
@@ -26,7 +25,7 @@ namespace LTI.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Student> Students { get; set; }
 
-        string conn = System.Configuration.ConfigurationManager.AppSettings["LTIConnection"];
+        string conn = ConfigurationManager.ConnectionStrings["LTIConnection"].ConnectionString;
 
         //Relations
         protected override void OnConfiguring(DbContextOptionsBuilder builder)

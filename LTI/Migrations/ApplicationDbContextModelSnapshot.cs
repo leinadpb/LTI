@@ -65,23 +65,6 @@ namespace LTI.Migrations
                     b.ToTable("Complains");
                 });
 
-            modelBuilder.Entity("LTI.Models.Configuration", b =>
-                {
-                    b.Property<int>("ConfigurationID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Key")
-                        .HasMaxLength(30);
-
-                    b.Property<string>("Value")
-                        .HasMaxLength(1200);
-
-                    b.HasKey("ConfigurationID");
-
-                    b.ToTable("Configurations");
-                });
-
             modelBuilder.Entity("LTI.Models.HistoryStudent", b =>
                 {
                     b.Property<int>("HistoryStudentID")
@@ -148,6 +131,23 @@ namespace LTI.Migrations
                     b.HasKey("HistoryTeacherID");
 
                     b.ToTable("HistoryTeachers");
+                });
+
+            modelBuilder.Entity("LTI.Models.Myconfiguration", b =>
+                {
+                    b.Property<int>("MyconfigurationID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Key")
+                        .HasMaxLength(30);
+
+                    b.Property<string>("Value")
+                        .HasMaxLength(1200);
+
+                    b.HasKey("MyconfigurationID");
+
+                    b.ToTable("Configurations");
                 });
 
             modelBuilder.Entity("LTI.Models.Norma", b =>

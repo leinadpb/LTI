@@ -50,6 +50,7 @@ namespace LTI.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            button1.Enabled = false;
             if (Disclaimer.Checked)
             {
                 if (Dologic())
@@ -66,6 +67,7 @@ namespace LTI.Forms
             else
             {
                 MessageBox.Show(ConfirmationBoxUnChecked, "LTI");
+                button1.Enabled = true;
             }
             
         }

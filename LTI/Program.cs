@@ -26,8 +26,8 @@ namespace LTI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Models.Configuration _surveyUrl = _context.Configurations.Where(c => c.Key.ToLower().Equals("survey_url")).FirstOrDefault();
-            Models.Configuration _surveyDisplayMode = _context.Configurations.Where(c => c.Key.ToLower().Equals("fullscreen")).FirstOrDefault();
+            Myconfiguration _surveyUrl = _context.Configurations.Where(c => c.Key.ToLower().Equals("survey_url")).FirstOrDefault();
+            Myconfiguration _surveyDisplayMode = _context.Configurations.Where(c => c.Key.ToLower().Equals("fullscreen")).FirstOrDefault();
 
             string SurveyUrl = _surveyUrl.Value;
 
@@ -68,7 +68,7 @@ namespace LTI
             }
 
             //If it's Survey Time
-            Configuration configs = _context.Configurations.Where(c => c.Key.ToLower().Equals("survey")).FirstOrDefault();
+            Myconfiguration configs = _context.Configurations.Where(c => c.Key.ToLower().Equals("survey")).FirstOrDefault();
             bool isSurveyTime = false;
             if (configs.Value.ToLower().Equals("true"))
             {

@@ -7,16 +7,15 @@ using System.Threading.Tasks;
 
 namespace LTI.Models
 {
-    class Configuration
+    class Myconfiguration
     {
         [Key]
-        public int ConfigurationID { get; set; }
+        public int MyconfigurationID { get; set; }
 
         [StringLength(30)]
         public string Key { get; set; }
 
         [StringLength(1200)]
         public string Value { get; set; }
-
     }
 }
