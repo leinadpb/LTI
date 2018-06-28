@@ -153,6 +153,12 @@ namespace LTI.Forms
             optionalTeachers.Enabled = false;
             optionalSection.Enabled = false;
 
+            Terms.ScrollToCaret();
+            Terms.AutoWordSelection = false;
+          
+            Terms.HideSelection = true;
+            Terms.Capture = false;
+
         }
 
         private void SwitchButton_Click(object sender, EventArgs e)

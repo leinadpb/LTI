@@ -201,24 +201,35 @@ namespace LTI
                 student = _context.Students.Where(s => s.LoginName.ToLower().Equals(loginName.ToLower())).FirstOrDefault();
                 teacher = _context.Teachers.Where(t => t.LoginName.ToLower().Equals(loginName.ToLower())).FirstOrDefault();
 
-                if (student != null) // && !domain.Equals("INTECADM")
+                if (IsIntecStudent(loginName)) // Verify if student's id is numeric -
                 {
-                    if (!student.HasFilledSurvey)
+                    if (student != null && !domain.Equals("INTECADM"))
                     {
-                        ShowSurvey(SurveyUrl, DisplaySurveyFullScreenMode);
-                        student.HasFilledSurvey = true;
-                        _context.SaveChanges();
-                    }
-                }else if(teacher != null) // For testing
-                {
-                    if (!teacher.HasFilledSurvey)
-                    {
-                        ShowSurvey(SurveyUrl, DisplaySurveyFullScreenMode);
-                        teacher.HasFilledSurvey = true;
-                        _context.SaveChanges();
+                        if (!student.HasFilledSurvey)
+                        {
+                            ShowSurvey(SurveyUrl, DisplaySurveyFullScreenMode);
+                            student.HasFilledSurvey = true;
+                            _context.SaveChanges();
+                        }
                     }
                 }
             }
+        }
+
+        private static bool IsIntecStudent(string _id)
+        {
+            long id = 0;
+            try
+            {
+                id = Int64.Parse(_id);
+                return true;
+            }
+            catch (Exception exp) {
+                Console.WriteLine(exp.Message);
+                Console.WriteLine("User without numeric id: Not INTEC active Student.");
+            }
+            return false;
+
         }
 
         private static void ShowSurvey(string _surveyUrl, bool _isFullScreen)

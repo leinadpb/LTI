@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SwitchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Terms = new System.Windows.Forms.RichTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Disclaimer = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.Disclaimer = new System.Windows.Forms.CheckBox();
             this.optionalTeachers = new System.Windows.Forms.ComboBox();
             this.optionalSubjects = new System.Windows.Forms.ComboBox();
             this.optionalSection = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.SwitchButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +55,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(991, 45);
             this.panel1.TabIndex = 0;
+            // 
+            // SwitchButton
+            // 
+            this.SwitchButton.BackColor = System.Drawing.Color.Red;
+            this.SwitchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SwitchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SwitchButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SwitchButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.SwitchButton.Location = new System.Drawing.Point(942, 9);
+            this.SwitchButton.Name = "SwitchButton";
+            this.SwitchButton.Size = new System.Drawing.Size(37, 26);
+            this.SwitchButton.TabIndex = 2;
+            this.SwitchButton.Text = "+";
+            this.SwitchButton.UseVisualStyleBackColor = false;
+            this.SwitchButton.Click += new System.EventHandler(this.SwitchButton_Click);
             // 
             // label1
             // 
@@ -71,7 +86,6 @@
             // 
             this.Terms.BackColor = System.Drawing.Color.White;
             this.Terms.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Terms.Enabled = false;
             this.Terms.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Terms.HideSelection = false;
             this.Terms.Location = new System.Drawing.Point(12, 106);
@@ -92,19 +106,6 @@
             this.panel2.Size = new System.Drawing.Size(991, 105);
             this.panel2.TabIndex = 2;
             // 
-            // Disclaimer
-            // 
-            this.Disclaimer.AutoSize = true;
-            this.Disclaimer.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Disclaimer.ForeColor = System.Drawing.Color.White;
-            this.Disclaimer.Location = new System.Drawing.Point(13, 4);
-            this.Disclaimer.Name = "Disclaimer";
-            this.Disclaimer.Size = new System.Drawing.Size(839, 26);
-            this.Disclaimer.TabIndex = 0;
-            this.Disclaimer.Text = "Estoy de acuerdo con que el incumplimiento a cualquiera de estas normas pueden ac" +
-    "arrear sansiones académicas.";
-            this.Disclaimer.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
@@ -120,6 +121,19 @@
             this.button1.Text = "ACEPTO";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Disclaimer
+            // 
+            this.Disclaimer.AutoSize = true;
+            this.Disclaimer.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Disclaimer.ForeColor = System.Drawing.Color.White;
+            this.Disclaimer.Location = new System.Drawing.Point(13, 4);
+            this.Disclaimer.Name = "Disclaimer";
+            this.Disclaimer.Size = new System.Drawing.Size(839, 26);
+            this.Disclaimer.TabIndex = 0;
+            this.Disclaimer.Text = "Estoy de acuerdo con que el incumplimiento a cualquiera de estas normas pueden ac" +
+    "arrear sansiones académicas.";
+            this.Disclaimer.UseVisualStyleBackColor = true;
             // 
             // optionalTeachers
             // 
@@ -176,21 +190,6 @@
             this.label4.Size = new System.Drawing.Size(132, 18);
             this.label4.TabIndex = 8;
             this.label4.Text = "Profesor/a (opcional)";
-            // 
-            // SwitchButton
-            // 
-            this.SwitchButton.BackColor = System.Drawing.Color.Red;
-            this.SwitchButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SwitchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SwitchButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SwitchButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.SwitchButton.Location = new System.Drawing.Point(942, 9);
-            this.SwitchButton.Name = "SwitchButton";
-            this.SwitchButton.Size = new System.Drawing.Size(37, 26);
-            this.SwitchButton.TabIndex = 2;
-            this.SwitchButton.Text = "+";
-            this.SwitchButton.UseVisualStyleBackColor = false;
-            this.SwitchButton.Click += new System.EventHandler(this.SwitchButton_Click);
             // 
             // AcceptNormas
             // 
