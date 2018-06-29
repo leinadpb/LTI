@@ -287,7 +287,7 @@ namespace LTI
                                 teacher.HasFilledSurvey = true;
                                 _context.SaveChanges();
                             }
-                            
+
                         }
                     }
                 }
@@ -329,6 +329,7 @@ namespace LTI
             string original_url = _surveyUrl;
             bool isFullScreen = _isFullScreen;
             bool result = true;
+            bool normalStatus = false;
 
             ProcessStartInfo startInfo = new ProcessStartInfo(@"C:\Program Files\Internet Explorer\iexplore.exe");
             startInfo.WindowStyle = ProcessWindowStyle.Maximized;
@@ -354,12 +355,17 @@ namespace LTI
                         loop = false;
                         iexplorer.Navigate(@"https://www.intec.edu.do");
                         process.Kill();
+                        normalStatus = true;
                     }
                 }
                 if (process.HasExited)
                 {
                     loop = false;
-                    result = false;
+                    if (!normalStatus)
+                    {
+                        result = false;
+                    }
+                    
                 }
             }
             if (result)
