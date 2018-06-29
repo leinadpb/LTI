@@ -4,20 +4,37 @@ using LTI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LTI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180629141644_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("LTI.Models.Admin", b =>
+                {
+                    b.Property<int>("AdminID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("TeacherID");
+
+                    b.HasKey("AdminID");
+
+                    b.HasIndex("TeacherID");
+
+                    b.ToTable("Admins");
+                });
 
             modelBuilder.Entity("LTI.Models.Claim", b =>
                 {
@@ -273,9 +290,6 @@ namespace LTI.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(120);
@@ -299,8 +313,6 @@ namespace LTI.Migrations
                     b.HasIndex("HistoryTeacherID");
 
                     b.ToTable("Teachers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Teacher");
                 });
 
             modelBuilder.Entity("LTI.Models.Trimestre", b =>
@@ -326,12 +338,10 @@ namespace LTI.Migrations
 
             modelBuilder.Entity("LTI.Models.Admin", b =>
                 {
-                    b.HasBaseType("LTI.Models.Teacher");
-
-
-                    b.ToTable("Admin");
-
-                    b.HasDiscriminator().HasValue("Admin");
+                    b.HasOne("LTI.Models.Teacher", "Teacher")
+                        .WithMany()
+                        .HasForeignKey("TeacherID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("LTI.Models.Claim", b =>

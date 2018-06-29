@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LTI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180627122155_InitialMigration")]
+    [Migration("20180629141303_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -275,6 +275,9 @@ namespace LTI.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(120);
@@ -298,6 +301,8 @@ namespace LTI.Migrations
                     b.HasIndex("HistoryTeacherID");
 
                     b.ToTable("Teachers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Teacher");
                 });
 
             modelBuilder.Entity("LTI.Models.Trimestre", b =>
@@ -319,6 +324,16 @@ namespace LTI.Migrations
                     b.HasKey("TrimestreID");
 
                     b.ToTable("Trimestres");
+                });
+
+            modelBuilder.Entity("LTI.Models.Admin", b =>
+                {
+                    b.HasBaseType("LTI.Models.Teacher");
+
+
+                    b.ToTable("Admin");
+
+                    b.HasDiscriminator().HasValue("Admin");
                 });
 
             modelBuilder.Entity("LTI.Models.Claim", b =>

@@ -102,7 +102,8 @@ namespace LTI.Migrations
                     Domain = table.Column<string>(maxLength: 20, nullable: false),
                     ComputerName = table.Column<string>(maxLength: 20, nullable: false),
                     HasFilledSurvey = table.Column<bool>(nullable: false),
-                    HistoryTeacherID = table.Column<int>(nullable: true)
+                    HistoryTeacherID = table.Column<int>(nullable: true),
+                    Discriminator = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

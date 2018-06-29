@@ -24,6 +24,7 @@ namespace LTI.Data
         public DbSet<Trimestre> Trimestres { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Admin> Admins { get; set; }
 
         string conn = ConfigurationManager.ConnectionStrings["LTIConnection"].ConnectionString;
 
@@ -33,8 +34,6 @@ namespace LTI.Data
             base.OnConfiguring(builder);
 
             builder.UseSqlServer(conn);
-
-            //Specify all relation here -- EF CORE 2 
 
             //// HistoryStudent - Student (1 - *)
             //builder.Entity<Student>()
