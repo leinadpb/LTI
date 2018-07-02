@@ -88,10 +88,17 @@ namespace LTI
             String info = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             String displayName = System.DirectoryServices.AccountManagement.UserPrincipal.Current.DisplayName;
 
+            
+
             int charLocation = info.IndexOf("\\");
             string loginName = info.Substring(charLocation + 1);
             string domain = info.Substring(0, charLocation);
             string userDisplayName = displayName;
+
+            if (!IsNotRegisteredEmployee(loginName))
+            {
+                return;
+            }
 
             bool isStudent = false;
             if (domain.ToUpper().Equals("INTEC"))
@@ -258,13 +265,14 @@ namespace LTI
                 {
                     if (student != null && !domain.Equals("INTECADM"))
                     {
-                        if (!student.HasFilledSurvey)
+                        while (!student.HasFilledSurvey)
                         {
                             bool s = ShowSurvey(StudentSurveyUrl, StudentSurveyFullscreen);
                             if (s)
                             {
                                 student.HasFilledSurvey = true;
                                 _context.SaveChanges();
+                                
                             }
                             
                         }
@@ -279,7 +287,7 @@ namespace LTI
                 {
                     if (teacher != null && domain.Equals("INTECADM"))
                     {
-                        if (!teacher.HasFilledSurvey)
+                        while (!teacher.HasFilledSurvey)
                         {
                             bool s = ShowSurvey(TeacherSurveyUrl, TeacherSurveyFullscreen);
                             if (s)
@@ -299,10 +307,15 @@ namespace LTI
             var listado = _context.Admins.Select(a => a);
             foreach(Admin a in listado)
             {
-                if (loginName.Equals(a.Teacher.LoginName))
+                Teacher te = _context.Teachers.Where(t => t.TeacherID == a.TeacherID).FirstOrDefault();
+                if(te != null)
                 {
-                    return false;
+                    if (loginName.Equals(te.LoginName))
+                    {
+                        return false;
+                    }
                 }
+                
             }
             return true;
 
