@@ -55,6 +55,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(991, 45);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // SwitchButton
             // 
@@ -91,7 +92,7 @@
             this.Terms.Location = new System.Drawing.Point(12, 106);
             this.Terms.Name = "Terms";
             this.Terms.ReadOnly = true;
-            this.Terms.Size = new System.Drawing.Size(967, 365);
+            this.Terms.Size = new System.Drawing.Size(967, 427);
             this.Terms.TabIndex = 1;
             this.Terms.Text = "";
             // 
@@ -101,7 +102,7 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.Disclaimer);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 477);
+            this.panel2.Location = new System.Drawing.Point(0, 539);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(991, 105);
             this.panel2.TabIndex = 2;
@@ -196,7 +197,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(991, 582);
+            this.ClientSize = new System.Drawing.Size(991, 644);
             this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

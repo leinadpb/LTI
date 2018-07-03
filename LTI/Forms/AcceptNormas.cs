@@ -143,6 +143,13 @@ namespace LTI.Forms
         private void AcceptNormas_Load(object sender, EventArgs e)
         {
             var normas = _context.Normas.Select(n => n);
+            Myconfiguration AllowSelectTeacherSubjectCF = _context.Configurations.Where(c => c.Key.ToUpper().Equals("ALLOW_SELECT_TEACHER_SUBJECT")).FirstOrDefault();
+            bool showSwitch = false; // allow select teacher subject
+           
+            if (AllowSelectTeacherSubjectCF.Value.ToUpper().Equals("TRUE"))
+            {
+                showSwitch = true;
+            }
             int counter = 1;
             foreach(Norma norma in normas)
             {
@@ -152,6 +159,11 @@ namespace LTI.Forms
             optionalSubjects.Enabled = false;
             optionalTeachers.Enabled = false;
             optionalSection.Enabled = false;
+
+            if (!showSwitch)
+            {
+                SwitchButton.Hide();
+            }
 
             Terms.ScrollToCaret();
             Terms.AutoWordSelection = false;
@@ -223,6 +235,11 @@ namespace LTI.Forms
             optionalTeachers.DisplayMember = "DisplayName";
             optionalTeachers.ValueMember = "TeacherID";
             optionalTeachers.DataSource = teachs.ToArray();
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

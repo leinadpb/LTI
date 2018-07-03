@@ -383,7 +383,7 @@ namespace LTI
             }
             if (result)
             {
-                startInfo.Arguments = @"https://www.intec.edu.do";
+                startInfo.Arguments = @"-extoff https://www.intec.edu.do";
                 startInfo.WindowStyle = ProcessWindowStyle.Maximized;
                 process = Process.Start(startInfo);
             }

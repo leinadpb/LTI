@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using LTI.Models;
+using LTI.Data;
+using System.Linq;
 
 namespace LTI.Forms
 {
@@ -7,6 +10,7 @@ namespace LTI.Forms
     {
         bool uiClosing = false;
         string username;
+        private readonly ApplicationDbContext _context = new ApplicationDbContext();
 
         public RulesReminder(string _username)
         {
@@ -38,7 +42,9 @@ namespace LTI.Forms
 
         private void RulesReminder_Load(object sender, EventArgs e)
         {
+            Myconfiguration RulesReminderText = _context.Configurations.Where(c => c.Key.ToUpper().Equals("RULES_REMINDER_TEXT")).FirstOrDefault();
             userNameLabel.Text = username;
+            DisclamerLabel.Text = RulesReminderText.Value;
         }
     }
 }
