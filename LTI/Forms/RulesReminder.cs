@@ -16,6 +16,7 @@ namespace LTI.Forms
         {
             InitializeComponent();
             this.username = _username;
+            this.ShowInTaskbar = false;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

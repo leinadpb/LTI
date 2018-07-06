@@ -34,6 +34,7 @@ namespace LTI.Forms
             domain = info.Substring(0, charLocation);
             computerName = Environment.MachineName.ToString();
             registeredDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            this.ShowInTaskbar = false;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

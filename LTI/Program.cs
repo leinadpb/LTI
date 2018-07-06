@@ -23,6 +23,7 @@ namespace LTI
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -276,6 +277,7 @@ namespace LTI
                             }
                             
                         }
+                     //   MessageBox.Show("¡Gracias! Ya puedes continuar utilizando este equipo.");
                     }
                 }
             }
@@ -297,6 +299,7 @@ namespace LTI
                             }
 
                         }
+                       // MessageBox.Show("¡Gracias! Ya puedes continuar utilizando este equipo.");
                     }
                 }
             }
@@ -379,6 +382,26 @@ namespace LTI
                         result = false;
                     }
                     
+                }
+                foreach(var current_process in Process.GetProcesses())
+                {
+                    //Do not allow navigation in most use browser while survey is showing!
+                    if (current_process.ProcessName.ToLower().Equals("chrome") || current_process.ProcessName.ToLower().Equals("microsoftedge") || current_process.ProcessName.ToLower().Equals("microsoftedgecp") || current_process.ProcessName.ToLower().Equals("firefox") || current_process.ProcessName.ToLower().Equals("iexplore"))
+                    {
+                        if (current_process.Id != process.Id)
+                        {
+                            try
+                            {
+                                current_process.CloseMainWindow();
+                                //MessageBox.Show("Para navegar en internet primero debes de llenar la encuesta de satisfacción.");
+                            }
+                            catch (Exception exp)
+                            {
+                                Console.WriteLine("Error, couldn't close browser: " + exp.Message);
+                            }
+                            //MessageBox.Show("Por favor, llene la encuesta.!");
+                        }
+                    }
                 }
             }
             if (result)
