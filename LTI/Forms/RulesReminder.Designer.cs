@@ -43,7 +43,7 @@
             // 
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameLabel.Location = new System.Drawing.Point(200, 301);
+            this.userNameLabel.Location = new System.Drawing.Point(200, 309);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Size = new System.Drawing.Size(162, 22);
             this.userNameLabel.TabIndex = 3;
@@ -53,7 +53,7 @@
             // 
             this.DisclamerLabel.AutoSize = true;
             this.DisclamerLabel.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisclamerLabel.Location = new System.Drawing.Point(200, 325);
+            this.DisclamerLabel.Location = new System.Drawing.Point(200, 333);
             this.DisclamerLabel.Name = "DisclamerLabel";
             this.DisclamerLabel.Size = new System.Drawing.Size(610, 22);
             this.DisclamerLabel.TabIndex = 4;
@@ -67,7 +67,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(359, 376);
+            this.button1.Location = new System.Drawing.Point(359, 383);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(284, 53);
             this.button1.TabIndex = 5;
@@ -78,7 +78,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::LTI.Properties.Resources.USA_AURICULARES;
-            this.pictureBox3.Location = new System.Drawing.Point(645, 46);
+            this.pictureBox3.Location = new System.Drawing.Point(655, 46);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(274, 215);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,7 +98,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LTI.Properties.Resources.NO_FOOD;
-            this.pictureBox1.Location = new System.Drawing.Point(56, 46);
+            this.pictureBox1.Location = new System.Drawing.Point(39, 46);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(283, 215);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -110,7 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(977, 446);
+            this.ClientSize = new System.Drawing.Size(977, 458);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DisclamerLabel);
             this.Controls.Add(this.userNameLabel);

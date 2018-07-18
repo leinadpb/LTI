@@ -243,5 +243,15 @@ namespace LTI.Forms
         {
 
         }
+
+        private void Terms_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Disclaimer_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
