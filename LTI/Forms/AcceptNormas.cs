@@ -51,6 +51,7 @@ namespace LTI.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            LoadingAppIcon.Show();
             button1.Enabled = false;
             if (Disclaimer.Checked)
             {
@@ -70,7 +71,7 @@ namespace LTI.Forms
                 MessageBox.Show(ConfirmationBoxUnChecked, "LTI");
                 button1.Enabled = true;
             }
-            
+            LoadingAppIcon.Hide();
         }
         private bool Dologic()
         {
@@ -171,6 +172,8 @@ namespace LTI.Forms
           
             Terms.HideSelection = true;
             Terms.Capture = false;
+
+            LoadingAppIcon.Hide();
 
         }
 

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.SwitchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.SwitchButton = new System.Windows.Forms.Button();
             this.Terms = new System.Windows.Forms.RichTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,13 +41,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.LoadingAppIcon = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadingAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
+            this.panel1.Controls.Add(this.LoadingAppIcon);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -55,6 +58,17 @@
             this.panel1.Size = new System.Drawing.Size(1057, 45);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(220, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(650, 27);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "NORMAS DEL LABORATORIO DE TECNOLOGIA DE LA INFORMACION";
             // 
             // SwitchButton
             // 
@@ -70,17 +84,6 @@
             this.SwitchButton.Text = "+";
             this.SwitchButton.UseVisualStyleBackColor = false;
             this.SwitchButton.Click += new System.EventHandler(this.SwitchButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(220, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(650, 27);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "NORMAS DEL LABORATORIO DE TECNOLOGIA DE LA INFORMACION";
             // 
             // Terms
             // 
@@ -111,7 +114,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkRed;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
@@ -193,6 +196,16 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Profesor/a (opcional)";
             // 
+            // LoadingAppIcon
+            // 
+            this.LoadingAppIcon.Image = global::LTI.Properties.Resources.loading_app;
+            this.LoadingAppIcon.Location = new System.Drawing.Point(1006, 4);
+            this.LoadingAppIcon.Name = "LoadingAppIcon";
+            this.LoadingAppIcon.Size = new System.Drawing.Size(37, 37);
+            this.LoadingAppIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LoadingAppIcon.TabIndex = 2;
+            this.LoadingAppIcon.TabStop = false;
+            // 
             // AcceptNormas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +235,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadingAppIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +256,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button SwitchButton;
+        private System.Windows.Forms.PictureBox LoadingAppIcon;
     }
 }

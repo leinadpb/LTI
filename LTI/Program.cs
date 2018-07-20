@@ -178,7 +178,11 @@ namespace LTI
                             else
                             {
                                 //Show main form
-                                Application.Run(new AcceptNormas(isStudent, info, displayName));
+                                DateTime today = DateTime.Now;
+                                if(today >= trimestres_actual.StartDate && today <= trimestres_actual.EndDate)
+                                {
+                                    Application.Run(new AcceptNormas(isStudent, info, displayName));
+                                }
                             }
                         }
                         catch (Exception exp)
@@ -239,7 +243,11 @@ namespace LTI
                             else
                             {
                                 //Show main form
-                                Application.Run(new AcceptNormas(isStudent, info, displayName));
+                                DateTime today = DateTime.Now;
+                                if (today >= trimestres_actual.StartDate && today <= trimestres_actual.EndDate)
+                                {
+                                    Application.Run(new AcceptNormas(isStudent, info, displayName));
+                                }
                             }
                         }
                         catch (Exception exp)

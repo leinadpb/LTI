@@ -73,6 +73,16 @@ namespace LTI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loading_app {
+            get {
+                object obj = ResourceManager.GetObject("loading-app", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MANTENGA_SILENCIO {
             get {
                 object obj = ResourceManager.GetObject("MANTENGA_SILENCIO", resourceCulture);
