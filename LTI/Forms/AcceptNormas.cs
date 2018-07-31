@@ -9,7 +9,7 @@ namespace LTI.Forms
 {
     public partial class AcceptNormas : Form
     {
-        private static string ConfirmationBoxUnChecked = "Debes hacer clic en la casilla de verificación para confirmar estar de acuerdo con las normas de este laboratorio.";
+        private static string ConfirmationBoxUnChecked = "¡Haz clic en la casilla de verificación al final de las Normas de uso!";
         private bool isStudent = false;
         String info;
         String displayName;
@@ -68,7 +68,7 @@ namespace LTI.Forms
             }
             else
             {
-                MessageBox.Show(ConfirmationBoxUnChecked, "LTI");
+                MessageBox.Show(ConfirmationBoxUnChecked, "LABTI - INTEC");
                 button1.Enabled = true;
             }
             LoadingAppIcon.Hide();
