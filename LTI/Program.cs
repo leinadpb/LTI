@@ -321,7 +321,7 @@ namespace LTI
                 Teacher te = _context.Teachers.Where(t => t.TeacherID == a.TeacherID).FirstOrDefault();
                 if(te != null)
                 {
-                    if (loginName.Equals(te.LoginName))
+                    if (loginName.ToLower().Equals(te.LoginName.ToLower()))
                     {
                         return false;
                     }
