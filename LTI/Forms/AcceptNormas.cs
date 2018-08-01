@@ -33,7 +33,7 @@ namespace LTI.Forms
             loginName = info.Substring(charLocation + 1);
             domain = info.Substring(0, charLocation);
             computerName = Environment.MachineName.ToString();
-            registeredDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            registeredDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
             this.ShowInTaskbar = false;
         }
 
@@ -83,6 +83,7 @@ namespace LTI.Forms
             {
                 try
                 {
+                    registeredDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                     student = new Student()
                     {
                         DisplayName = displayName,
@@ -120,6 +121,7 @@ namespace LTI.Forms
             {
                 try
                 {
+                    registeredDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                     teacher = new Teacher()
                     {
                         DisplayName = displayName,
