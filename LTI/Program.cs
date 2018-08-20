@@ -267,8 +267,7 @@ namespace LTI
             {
                 if (showRulesReminder)
                 {
-                    RulesReminder rm = new RulesReminder(displayName);
-                    rm.ShowDialog();
+                    Application.Run(new RulesReminder(displayName));
                 }
             }
 
