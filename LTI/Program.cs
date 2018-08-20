@@ -263,6 +263,14 @@ namespace LTI
                     }
                 }
             }
+            else
+            {
+                if (showRulesReminder)
+                {
+                    RulesReminder rm = new RulesReminder(displayName);
+                    rm.ShowDialog();
+                }
+            }
 
             //Verify if Show Survey
             if (isSurveyTimeStudent)
